@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acebook.Api", "Acebook.Api\Acebook.Api.csproj", "{CBAAC536-8D84-4D98-A323-7BBB8974191E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acebook.Test", "Acebook.Test\Acebook.Test.csproj", "{29D7904A-23E5-4183-B3C9-03F331D50C7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{CBAAC536-8D84-4D98-A323-7BBB8974191E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBAAC536-8D84-4D98-A323-7BBB8974191E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBAAC536-8D84-4D98-A323-7BBB8974191E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D7904A-23E5-4183-B3C9-03F331D50C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D7904A-23E5-4183-B3C9-03F331D50C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D7904A-23E5-4183-B3C9-03F331D50C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D7904A-23E5-4183-B3C9-03F331D50C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
