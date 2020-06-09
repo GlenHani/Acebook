@@ -29,6 +29,16 @@ namespace AcebookApi.Migrations
 
                     b.ToTable("Posts");
                 });
+
+            modelBuilder.Entity("AcebookApi.Models.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
 #pragma warning restore 612, 618
         }
     }
