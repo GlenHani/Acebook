@@ -23,7 +23,7 @@ namespace AcebookApi.Controllers
             return _context.Users.ToList();
         }
 
-        [HttpGet("{id}", Name = "GetPost")]
+        [HttpGet("{id}", Name = "GetUser")]
         public ActionResult<User> GetById(long id)
         {
             var item = _context.Users.Find(id);
@@ -33,6 +33,7 @@ namespace AcebookApi.Controllers
             }
             return item;
         }
+
 
         [HttpPost]
         public object Create(User user)
