@@ -17,7 +17,8 @@ namespace AcebookApi.Controllers
 
             if (_context.Posts.Count() == 0)
             {
-                _context.Posts.Add(new Post { Message = "Hi, folks!" });
+                _context.Users.Add(new User { Id = 1, UserName = "Glen", FirstName = "Glen", LastName = "The Best", EmailAddress = "dev.outlook@test.ciom" });
+                _context.Posts.Add(new Post { Message = "Hi, folks!" , UserId = 1 });
                 _context.SaveChanges();
             }
         }
