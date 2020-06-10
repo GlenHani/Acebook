@@ -8,5 +8,6 @@ namespace AcebookApi.Models
         public string Message { get; set; }
         [ForeignKey("User")]
         public long UsersId {get; set;}
+        public virtual User User { get; set; }
     }
 }

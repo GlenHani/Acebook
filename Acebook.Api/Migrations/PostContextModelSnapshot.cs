@@ -29,6 +29,8 @@ namespace AcebookApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UsersId");
+
                     b.ToTable("Posts");
                 });
 
@@ -48,6 +50,14 @@ namespace AcebookApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("AcebookApi.Models.Post", b =>
+                {
+                    b.HasOne("AcebookApi.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
