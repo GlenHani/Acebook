@@ -7,6 +7,7 @@ namespace AcebookApi.Models
         {
         }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         // protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         // {
