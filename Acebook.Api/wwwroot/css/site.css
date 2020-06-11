@@ -29,7 +29,14 @@ a{
     text-decoration: none;
 }
 
-.container {
+.container{
+    display:flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container--split {
     display: flex;
     flex-flow: row;
     justify-content: space-between;

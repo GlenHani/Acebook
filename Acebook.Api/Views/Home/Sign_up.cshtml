@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Sign up";
+}
+
+
+    <div class="container">
+
+        <div>
+            <h1>Enter your information to Sign up</h1>
+        </div>
+            <div class="card">
+                <form action="User/Sign_up" method="post">
+                    <input type="text" placeholder="Username" required="" name="username" />
+                    <input type="email" placeholder="Email" required="" name="email" />
+                    <input type="Password" required="" placeholder="Password" name="password" />
+                </form>
+            </div>
+        </div>
