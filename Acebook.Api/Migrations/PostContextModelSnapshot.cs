@@ -45,6 +45,8 @@ namespace AcebookApi.Migrations
 
                     b.Property<string>("LastName");
 
+                    b.Property<string>("Password");
+
                     b.Property<string>("UserName");
 
                     b.HasKey("Id");
