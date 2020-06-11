@@ -1,14 +1,89 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-    <div class="container--image">
 
-            <h1>Welcome to Acebook</h1>
+<div class="container">
+    <div class="right-half">
+        <div class="phone">
+            <div class="phone-shade"></div>
 
-            <div>
-                <ul>
-                    <li><a asp-controller="Home" asp-action="Sign-in" class="button">Sign up</a></li>
-                    <li><a asp-controller="Home" asp-action="Log-in" class="button">Log-in</a></li>
-                </ul>
-            </div>
+            <div class="phone-speaker"></div>
+
+            <div class="phone-screen">
+
+                <div class="phone-header">
+                    <div class="phone-menu"></div>
+                </div>
+
+                <div class="phone-post" id="first-post">
+                    <div class="post-thumb"></div>
+                    <div class="line post-title-1"></div>
+                    <div class="line post-title-2"></div>
+                    <div class="line post-line-1"></div>
+                    <div class="line post-line-2"></div>
+                </div>
+
+                <div class="phone-post">
+                    <div class="post-thumb"></div>
+                    <div class="post-title-1"></div>
+                    <div class="post-title-2"></div>
+                    <div class="post-line-1"></div>
+                    <div class="post-line-2"></div>
+                </div>
+
+                <div class="phone-post">
+                    <div class="post-thumb"></div>
+                    <div class="post-title-1"></div>
+                    <div class="post-title-2"></div>
+                    <div class="post-line-1"></div>
+                    <div class="post-line-2"></div>
+                </div>
+
+                <div class="phone-post">
+                    <div class="post-thumb"></div>
+                    <div class="post-title-1"></div>
+                    <div class="post-title-2"></div>
+                    <div class="post-line-1"></div>
+                    <div class="post-line-2"></div>
+                </div>
+
+                <div class="phone-post">
+                    <div class="post-thumb"></div>
+                    <div class="post-title-1"></div>
+                    <div class="post-title-2"></div>
+                    <div class="post-line-1"></div>
+                    <div class="post-line-2"></div>
+                </div>
+
+                <div class="phone-post">
+                    <div class="post-thumb"></div>
+                    <div class="post-title-1"></div>
+                    <div class="post-title-2"></div>
+                    <div class="post-line-1"></div>
+                    <div class="post-line-2"></div>
+                </div>
+
+            </div> <!-- end .phone-screen -->
+
+            <div class="phone-button"></div>
         </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="left-half">
+        <div class="card">
+            <h1>Welcome to Acebook</h1>
+            <p>Acebook is the leading social media app</p>
+            <ul class="button-container--column">
+                <li class="button-column"><a asp-controller="Home" asp-action="Sign-in" class="button">Sign up</a></li>
+                <li>Or</li>
+                <li class="button-column"><a asp-controller="Home" asp-action="Log-in" class="button">Log-in</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

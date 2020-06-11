@@ -15,4 +15,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\css\phoneanimation.css" />
+  </ItemGroup>
 </Project>
