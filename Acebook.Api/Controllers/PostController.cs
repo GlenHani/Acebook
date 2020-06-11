@@ -80,11 +80,21 @@ namespace AcebookApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Post> UpdateCommentByUserId()
+        public ActionResult<Post> UpdateCommentByUserId(long id, string message)
         {
+            var entry = _context.Posts.Find(id);
+
+            if(entry == null)
+            {
+                return StatusCode(404);
+            }
+
+            entry.Message = message;
+            _context.SaveChanges();
 
 
-            return null;
+
+            return entry;
         }
 
 
