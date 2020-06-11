@@ -18,4 +18,10 @@
   <ItemGroup>
     <Content Remove="wwwroot\css\phoneanimation.css" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="PT_Serif\PTSerif-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PT_Serif\PTSerif-Bold.ttf" />
+  </ItemGroup>
 </Project>
