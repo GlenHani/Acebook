@@ -1,0 +1,217 @@
+﻿*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+// dev
+.phone {
+    margin: 10px auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.phone {
+    height: 428px;
+    width: 226px;
+    background: rgb(65, 82, 96);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-shade {
+    position: absolute;
+    height: 500px;
+    width: 200px;
+    left: 50%;
+    background: rgb(85, 95, 107);
+    transform: rotate(18deg);
+}
+
+.phone-speaker {
+    height: 8px;
+    width: 42px;
+    border-radius: 4px;
+    background: rgb(62, 71, 82);
+    position: relative;
+    top: 23px;
+    left: 50%;
+    margin-left: -21px;
+}
+
+.phone-button {
+    height: 40px;
+    width: 40px;
+    background: rgb(73, 82, 91);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 10px;
+}
+
+.phone-screen {
+    height: 302px;
+    width: 208px;
+    background: rgb(242, 235, 226);
+    position: absolute;
+    left: 9px;
+    top: 58px;
+    overflow: hidden;
+}
+
+.phone-header {
+    width: 100%;
+    height: 30px;
+    background: rgb(30, 30, 30);
+    position: relative;
+    z-index: 3;
+    color: white;
+}
+
+.phone-menu {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    background: white;
+    width: 15px;
+    height: 2px;
+}
+
+    .phone-menu:before {
+        content: "";
+        width: 15px;
+        height: 2px;
+        top: 5px;
+        background: rgb(242, 235, 226);
+        position: absolute;
+    }
+
+    .phone-menu:after {
+        content: "";
+        width: 15px;
+        height: 2px;
+        top: 10px;
+        background: rgb(242, 235, 226);
+        position: absolute;
+    }
+
+.phone-post {
+    padding: 15px 10px;
+    border-bottom: 2px solid rgb(98, 96, 93);
+    overflow: hidden;
+    height: 60px;
+    position: relative;
+    transform: translateY(-60px);
+    z-index: 2;
+}
+
+    .phone-post.active {
+        -webkit-animation: new-post 1s ease forwards;
+    }
+
+    .phone-post .post-thumb {
+        height: 29px;
+        width: 27px;
+        background: rgb(176, 176, 176);
+        position: absolute;
+        margin-right: 5px;
+    }
+
+    .phone-post .post-title-1 {
+        height: 4px;
+        width: 14px;
+        margin-top: 3px;
+        background: rgb(218, 218, 218);
+        position: absolute;
+        left: 44px;
+    }
+
+    .phone-post .post-title-2 {
+        height: 4px;
+        width: 26px;
+        margin-top: 3px;
+        background: rgb(218, 218, 218);
+        position: absolute;
+        left: 63px;
+    }
+
+    .phone-post .post-line-1 {
+        height: 4px;
+        width: 150px;
+        background: rgb(176, 176, 176);
+        position: absolute;
+        left: 44px;
+        top: 27px;
+    }
+
+    .phone-post .post-line-2 {
+        height: 4px;
+        width: 100px;
+        background: rgb(176, 176, 176);
+        position: absolute;
+        left: 44px;
+        top: 36px;
+    }
+
+
+#first-post .line {
+    width: 0;
+}
+
+
+#first-post.active .post-thumb {
+    transform: scale(0);
+    -webkit-animation: box-grow 500ms ease 500ms forwards;
+}
+
+#first-post.active .line {
+    transition: width 500ms ease;
+    transition-delay: 600ms;
+}
+
+#first-post.active .post-title-1 {
+    width: 14px;
+}
+
+#first-post.active .post-title-2 {
+    width: 26px;
+}
+
+#first-post.active .post-line-1 {
+    width: 150px;
+}
+
+#first-post.active .post-line-2 {
+    width: 100px;
+}
+
+
+
+
+@-webkit-keyframes new-post {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes box-grow {
+    0% {
+        transform: scale(0) rotate(25deg);
+    }
+
+    60% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
