@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
 
+
 namespace AcebookApi.Controllers
 {
     [Route("api/[controller]")]
@@ -47,5 +48,45 @@ namespace AcebookApi.Controllers
             _context.SaveChanges();
             return post;
         }
+
+        [HttpGet("GetByUserId", Name = "GetPostByUserId")]
+        public ActionResult<IList<Post>> GetByUserId(long id)
+        {
+            var item = _context.Posts.Where(i => i.UserId == id).ToList();
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return item;
+        }
+
+
+        [HttpDelete("{id}")]
+        public ActionResult<Post> DeleteById(long id)
+        {
+
+
+            var item = _context.Posts.Find(id);
+
+            if(item == null)
+            {
+                return StatusCode(404);
+            }
+           
+            _context.Posts.Remove(item);
+            _context.SaveChanges();
+            return StatusCode(200);
+
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Post> UpdateCommentByUserId()
+        {
+
+
+            return null;
+        }
+
+
     }
 }
