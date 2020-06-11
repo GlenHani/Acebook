@@ -58,6 +58,16 @@ a{
     align-items: center;
 }
 
+.tophalf {
+    width: 100%;
+    text-align: center;
+}
+
+.bottomhalf {
+    width: 100%;
+    text-align: center;
+}
+
 .button-container{
     display: flex;
     flex-flow: row;
