@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
+using Acebook.Api.Models;
 
 namespace AcebookApi.Controllers
 {
@@ -38,9 +39,22 @@ namespace AcebookApi.Controllers
         [HttpPost]
         public object Create(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return user;
+            var username = _context.Users.SingleOrDefault(i => i.UserName == user.UserName);
+
+            if(username != null)
+            {
+                return "User Exits, please another user name";
+            }
+            else
+            {
+                var encyrt = new EncrytpionRepository(user.Password).ReturnEncrpyt();
+                user.Password = encyrt;
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                return user;
+
+
+            }
         }
     }
 }
