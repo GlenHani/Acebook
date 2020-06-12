@@ -20,7 +20,7 @@ namespace Acebook.UnitTest
 
             // Assert
          
-            Assert.AreEqual(result, "MGzYMsUyPHfnIfSDNsdRrQ==");
+            Assert.AreEqual("MGzYMsUyPHfnIfSDNsdRrQ==",result);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace Acebook.UnitTest
 
             // Assert
 
-            Assert.AreEqual(result, "Test");
+            Assert.AreEqual("Test",result);
         }
 
     }
