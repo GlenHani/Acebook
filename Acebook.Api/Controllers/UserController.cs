@@ -34,6 +34,18 @@ namespace AcebookApi.Controllers
             return item;
         }
 
+        [HttpPost]
+        public object SignUp(string Password, string Username, string FirstName, string LastName, string EmailAddress)
+        {
+            var user = _context.Users.SingleOrDefault(c => c.UserName == Username);
+     
+           _context.Users.Add(new User { UserName = Username, Password = Password, FirstName = FirstName, LastName = LastName, EmailAddress = EmailAddress });
+
+            _context.SaveChanges();
+
+            return user;
+        }
+        
 
         [HttpPost]
         public object Create(User user)
