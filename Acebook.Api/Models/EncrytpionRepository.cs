@@ -21,7 +21,7 @@ namespace Acebook.Api.Models
 
         public string ReturnDencrpyt()
         {
-            return Decrypt(this._password); ;
+            return Decrypt(this._password); 
         }
 
       
