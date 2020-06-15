@@ -73,17 +73,18 @@
 
     <div class="left-half">
 
-            <h1>Enter your information to Sign up</h1>
         
-            <div class="card"> 
-                <form  asp-controller="User" asp-action="SignUp" method="post">
-                    <input type="text" placeholder="Username" required="" name="username" class="form-input" />
-                    <input type="email" placeholder="Email" required="" name="emailAddress" class="form-input" />
-                    <input type="password" required="" placeholder="Password" name="password" class="form-input" />
-                    <input type="text" placeholder="FirstName" name="firstName"class="form-input" />
-                    <input type="text" placeholder="LastName" name="lastName"class="form-input" />
-                    <input type="submit" value="Sign-up" class="button" />
-                </form>
-            </div>
+        <div class="card">
+            <h1>Enter your information to Sign up</h1>
+
+            <form asp-controller="User" asp-action="SignUp" method="post">
+                <input type="text" placeholder="Username" required="" name="username" class="form-input" />
+                <input type="email" placeholder="Email" required="" name="emailAddress" class="form-input" />
+                <input type="password" required="" placeholder="Password" name="password" class="form-input" />
+                <input type="text" placeholder="FirstName" name="firstName" class="form-input" />
+                <input type="text" placeholder="LastName" name="lastName" class="form-input" />
+                <input type="submit" value="Sign-up" class="button" />
+            </form>
+        </div>
            </div>
         </div>
