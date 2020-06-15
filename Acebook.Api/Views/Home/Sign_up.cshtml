@@ -3,9 +3,10 @@
 }
 
 
-    <div class="container">
+    <div class="container--split">
 
-    <div class="tophalf"><div class="phone">
+    <div class="right-half">
+        <div class="phone">
     <div class="phone-shade"></div>
 
     <div class="phone-speaker"></div>
@@ -67,19 +68,21 @@
     </div> <!-- end .phone-screen -->
 
     <div class="phone-button"></div>
-</div></div>
-    <div class="bottomhalf">
+</div>
+    </div>
+
+    <div class="left-half">
 
             <h1>Enter your information to Sign up</h1>
         
             <div class="card"> 
                 <form  asp-controller="User" asp-action="SignUp" method="post">
-                    <input type="text" placeholder="Username" required="" name="username" />
-                    <input type="email" placeholder="Email" required="" name="emailAddress"  />
-                    <input type="password" required="" placeholder="Password" name="password" />
-                    <input type="text" placeholder="FirstName" name="firstName" />
-                    <input type="text" placeholder="LastName" name="lastName" />
-                    <input type="submit" value="Sign-up" />
+                    <input type="text" placeholder="Username" required="" name="username" class="form-input" />
+                    <input type="email" placeholder="Email" required="" name="emailAddress" class="form-input" />
+                    <input type="password" required="" placeholder="Password" name="password" class="form-input" />
+                    <input type="text" placeholder="FirstName" name="firstName"class="form-input" />
+                    <input type="text" placeholder="LastName" name="lastName"class="form-input" />
+                    <input type="submit" value="Sign-up" class="button" />
                 </form>
             </div>
            </div>
