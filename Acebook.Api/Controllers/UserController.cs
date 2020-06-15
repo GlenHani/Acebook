@@ -35,15 +35,21 @@ namespace AcebookApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<User> SignUp(string Password, string username, string FirstName, string LastName, string EmailAddress)
+        public IActionResult SignUp()
         {
+            string username = Request.Form["username"];
+            string emailAddress = Request.Form["emailAddress"];
+            string password = Request.Form["password"];
+            string firstName = Request.Form["firstName"];
+            string lastName = Request.Form["lastName"];
+
             var user = _context.Users.SingleOrDefault(c => c.UserName == username);
      
-           _context.Users.Add(new User { UserName = username, Password = Password, FirstName = FirstName, LastName = LastName, EmailAddress = EmailAddress });
+           _context.Users.Add(new User { UserName = username, Password = password, FirstName = firstName, LastName = lastName, EmailAddress = emailAddress });
 
             _context.SaveChanges();
 
-            return user;
+            return RedirectToAction("SignUp", "Home");
         }
         
 

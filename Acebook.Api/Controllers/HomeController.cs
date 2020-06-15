@@ -24,7 +24,7 @@ namespace Acebook.Api.Controllers
 
         public IActionResult Sign_up()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your Sign up page.";
 
             return View();
         }
