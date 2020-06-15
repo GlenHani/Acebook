@@ -35,11 +35,11 @@ namespace AcebookApi.Controllers
         }
 
         [HttpPost]
-        public object SignUp(string Password, string Username, string FirstName, string LastName, string EmailAddress)
+        public ActionResult<User> SignUp(string Password, string username, string FirstName, string LastName, string EmailAddress)
         {
-            var user = _context.Users.SingleOrDefault(c => c.UserName == Username);
+            var user = _context.Users.SingleOrDefault(c => c.UserName == username);
      
-           _context.Users.Add(new User { UserName = Username, Password = Password, FirstName = FirstName, LastName = LastName, EmailAddress = EmailAddress });
+           _context.Users.Add(new User { UserName = username, Password = Password, FirstName = FirstName, LastName = LastName, EmailAddress = EmailAddress });
 
             _context.SaveChanges();
 
@@ -47,12 +47,12 @@ namespace AcebookApi.Controllers
         }
         
 
-        [HttpPost]
-        public object Create(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return user;
-        }
+        //[HttpPost]
+        //public object Create(User user)
+        //{
+        //    _context.Users.Add(user);
+        //    _context.SaveChanges();
+        //    return user;
+        //}
     }
 }

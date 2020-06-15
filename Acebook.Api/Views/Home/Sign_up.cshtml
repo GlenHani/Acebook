@@ -73,12 +73,12 @@
             <h1>Enter your information to Sign up</h1>
         
             <div class="card">
-                <form action="User/Sign_up" method="post">
+                <form  asp-controller="User" asp-action="SignUp" method="post">
                     <input type="text" placeholder="Username" required="" name="username" />
-                    <input type="email" placeholder="Email" required="" name="EmailAddress" required="" />
+                    <input type="email" placeholder="Email" required="" name="EmailAddress"  />
                     <input type="Password" required="" placeholder="Password" name="password" />
-                    <input type="FirstName" placeholder="FirstName" name="FirsName" />
-                    <input type="LastName" placeholder="LastName" name="LastName" />
+                    <input type="text" placeholder="FirstName" name="FirsName" />
+                    <input type="text" placeholder="LastName" name="LastName" />
                     <input type="submit" value="Sign-up" />
                 </form>
             </div>
