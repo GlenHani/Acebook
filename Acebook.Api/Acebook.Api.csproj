@@ -24,4 +24,7 @@
   <ItemGroup>
     <EmbeddedResource Include="PT_Serif\PTSerif-Bold.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\User\" />
+  </ItemGroup>
 </Project>

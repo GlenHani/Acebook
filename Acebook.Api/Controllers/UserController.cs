@@ -36,15 +36,30 @@ namespace AcebookApi.Controllers
             return item;
         }
 
-        [Route("SignUp")]
-        [HttpPost]
-        public object Create(User user)
+        [HttpPost(Name = "SignUp")]
+        [Route("/User/SignUp")]
+        public ActionResult SignUp(Guid id)
         {
-            var username = _context.Users.SingleOrDefault(i => i.UserName == user.UserName);
+            string username = Request.Form["username"];
+            string emailAddress = Request.Form["emailAddress"];
+            string password = Request.Form["password"];
+            string firstName = Request.Form["firstName"];
+            string lastName = Request.Form["lastName"];
 
-            if (username != null)
+            var user = new User()
             {
-                return "User Exits, please another user name";
+                UserName = username,
+                Password = password,
+                FirstName = firstName,
+                LastName = lastName,
+                EmailAddress = emailAddress
+            };
+
+           var result = _context.Users.FirstOrDefault(c => c.UserName == user.UserName);
+
+            if (result != null)
+            {
+                return RedirectToAction("Sign_Up", "Home");
             }
             else
             {
@@ -52,26 +67,32 @@ namespace AcebookApi.Controllers
                 user.Password = encyrt;
                 _context.Users.Add(user);
                 _context.SaveChanges();
-                return user;
+                return RedirectToAction("Sign_In", "Home");
             }
         }
 
-        [Route("SignIn")]
-        [HttpPost()]
-        public object SignIn(string user, string password)
+
+
+        [HttpPost(Name = "Login")]
+        [Route("/User/Login")]
+        public IActionResult Login(Guid id)
         {
-            var username = _context.Users.SingleOrDefault(i => i.UserName == user);
-            var db_password = username.Password;
+            string username = Request.Form["username"];
+            string password = Request.Form["password"];
+
+
+            var user = _context.Users.SingleOrDefault(i => i.UserName == username);
+            var db_password = user.Password;
             var doesItMatch = new AuthoRepository();
             var result = doesItMatch.SignInValidation(db_password, password);
 
             if (username != null && result == true)
             {
-                return true;
+                return RedirectToAction("Account", "User");
             }
             else
             {
-                return "Indvalid Password or Username";
+                return RedirectToAction("Sign_In", "Home");
             }
 
         }

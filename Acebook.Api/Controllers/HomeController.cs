@@ -22,9 +22,9 @@ namespace Acebook.Api.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Sign_up()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your Sign up page.";
 
             return View();
         }
