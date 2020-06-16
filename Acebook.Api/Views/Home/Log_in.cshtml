@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Log in";
+}
+
+    <div class="container--split">
+        <div class="right-half">
+            <div class="phone">
+                <div class="phone-shade"></div>
+
+                <div class="phone-speaker"></div>
+
+                <div class="phone-screen">
+
+                    <div class="phone-header">
+                        <div class="phone-menu"></div>
+                    </div>
+
+                    <div class="phone-post" id="first-post">
+                        <div class="post-thumb"></div>
+                        <div class="line post-title-1"></div>
+                        <div class="line post-title-2"></div>
+                        <div class="line post-line-1"></div>
+                        <div class="line post-line-2"></div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-title-1"></div>
+                        <div class="post-title-2"></div>
+                        <div class="post-line-1"></div>
+                        <div class="post-line-2"></div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-title-1"></div>
+                        <div class="post-title-2"></div>
+                        <div class="post-line-1"></div>
+                        <div class="post-line-2"></div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-title-1"></div>
+                        <div class="post-title-2"></div>
+                        <div class="post-line-1"></div>
+                        <div class="post-line-2"></div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-title-1"></div>
+                        <div class="post-title-2"></div>
+                        <div class="post-line-1"></div>
+                        <div class="post-line-2"></div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-title-1"></div>
+                        <div class="post-title-2"></div>
+                        <div class="post-line-1"></div>
+                        <div class="post-line-2"></div>
+                    </div>
+
+                </div> <!-- end .phone-screen -->
+
+                <div class="phone-button"></div>
+            </div>
+        </div>
+
+        <div class="left-half">
+            <div class="card">
+                <h1>Please add your information in below</h1>
+                <form asp-controller="User" asp-action="Login" method="post">
+                    <input class="form-input" type="text" name="username" placeholder="Username" required="" />
+                    <input class="form-input" type="password" name="password" placeholder="Password" required="" />
+                    <input type="submit" value="Log in" class="button" />
+                </form>
+            </div>
+        </div>
+    </div>

@@ -8,7 +8,7 @@ namespace AcebookApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostController : Controller
     {
         private readonly PostContext _context;
 
@@ -97,6 +97,10 @@ namespace AcebookApi.Controllers
             return entry;
         }
 
+        public IActionResult postView()
+        {
+            return View("UserPosts");
+        }
 
     }
 }

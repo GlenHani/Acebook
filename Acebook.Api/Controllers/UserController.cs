@@ -4,12 +4,13 @@ using System.Linq;
 using AcebookApi.Models;
 using Acebook.Api.Models;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace AcebookApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly PostContext _context;
 
@@ -38,7 +39,7 @@ namespace AcebookApi.Controllers
 
         [HttpPost(Name = "SignUp")]
         [Route("/User/SignUp")]
-        public ActionResult SignUp(Guid id)
+        public ActionResult SignUp()
         {
             string username = Request.Form["username"];
             string emailAddress = Request.Form["emailAddress"];
@@ -67,7 +68,7 @@ namespace AcebookApi.Controllers
                 user.Password = encyrt;
                 _context.Users.Add(user);
                 _context.SaveChanges();
-                return RedirectToAction("Sign_In", "Home");
+                return RedirectToAction("Log_in", "Home");
             }
         }
 
@@ -75,24 +76,34 @@ namespace AcebookApi.Controllers
 
         [HttpPost(Name = "Login")]
         [Route("/User/Login")]
-        public IActionResult Login(Guid id)
+        public IActionResult Login()
         {
             string username = Request.Form["username"];
             string password = Request.Form["password"];
 
 
-            var user = _context.Users.SingleOrDefault(i => i.UserName == username);
-            var db_password = user.Password;
-            var doesItMatch = new AuthoRepository();
-            var result = doesItMatch.SignInValidation(db_password, password);
+            var user = _context.Users.FirstOrDefault(i => i.UserName == username);
+            
 
-            if (username != null && result == true)
+
+            if (user != null)
             {
-                return RedirectToAction("Account", "User");
+                var db_password = user.Password;
+                var doesItMatch = new AuthoRepository();
+                var result = doesItMatch.SignInValidation(db_password, password);
+
+
+                if (result == true)
+                {
+                    HttpContext.Session.SetString("username", user.UserName);
+                    return RedirectToAction("Account", "User");
+                 } else {
+                    return RedirectToAction("Log_in", "Home");
+                };
             }
             else
             {
-                return RedirectToAction("Sign_In", "Home");
+                return RedirectToAction("Log_in", "Home");
             }
 
         }
