@@ -29,6 +29,13 @@ namespace Acebook.Api.Controllers
             return View();
         }
 
+        public IActionResult Log_in()
+        {
+            ViewData["Message"] = "Your Log_in page.";
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

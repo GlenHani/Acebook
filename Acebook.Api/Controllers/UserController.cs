@@ -38,7 +38,7 @@ namespace AcebookApi.Controllers
 
         [HttpPost(Name = "SignUp")]
         [Route("/User/SignUp")]
-        public ActionResult SignUp(Guid id)
+        public ActionResult SignUp()
         {
             string username = Request.Form["username"];
             string emailAddress = Request.Form["emailAddress"];
@@ -75,7 +75,7 @@ namespace AcebookApi.Controllers
 
         [HttpPost(Name = "Login")]
         [Route("/User/Login")]
-        public IActionResult Login(Guid id)
+        public IActionResult Login()
         {
             string username = Request.Form["username"];
             string password = Request.Form["password"];
