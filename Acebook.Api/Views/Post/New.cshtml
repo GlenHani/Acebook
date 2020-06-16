@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "New";
+}
+
+<div class="left-half">
+
+
+    <div class="card">
+        <h1>Enter Comment</h1>
+
+        <form asp-controller="Post" asp-action="Create" method="post">
+            <input type="text" placeholder="Comment" required="" name="message" class="form-input" />
+            <input type="text" placeholder="UserId" required="" name="userid" class="form-input" />
+            <input type="submit" value="Submit" class="button" />
+        </form>
+    </div>
+</div>

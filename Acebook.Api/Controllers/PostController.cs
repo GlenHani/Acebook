@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
-
+using System;
 
 namespace AcebookApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostController : Controller
     {
         private readonly PostContext _context;
 
@@ -41,12 +41,30 @@ namespace AcebookApi.Controllers
             return item;
         }
 
-        [HttpPost]
-        public object Create(Post post)
+        [Route("new")]
+        public IActionResult New()
         {
+            return View();
+        }
+
+
+        [HttpPost]
+        public RedirectToActionResult Create()
+        {
+            string message = Request.Form["message"];
+            string userid = Request.Form["userid"];
+            int id = Convert.ToInt32(userid);
+
+            var post = new Post()
+            {
+                Message = message,
+                UserId = id
+            };
+
+
             _context.Posts.Add(post);
             _context.SaveChanges();
-            return post;
+            return RedirectToAction("Index", "Post");
         }
 
         [HttpGet("GetByUserId", Name = "GetPostByUserId")]
