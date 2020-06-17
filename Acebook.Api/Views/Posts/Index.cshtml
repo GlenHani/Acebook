@@ -1,0 +1,14 @@
+﻿@{ 
+    ViewData["title"] = "Index";
+
+}
+
+
+<ul>
+    @foreach (var post in ViewBag.posts)
+    {
+        <li>
+            <p> post.comment </p>
+        </li>
+    }
+</ul>
