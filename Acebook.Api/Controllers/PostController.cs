@@ -2,11 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
-
+using Microsoft.AspNetCore.Http;
+using System;
 
 namespace AcebookApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PostController : Controller
     {
@@ -16,12 +17,7 @@ namespace AcebookApi.Controllers
         {
             _context = context;
 
-            if (_context.Posts.Count() == 0)
-            {
-                _context.Users.Add(new User { Id = 1, UserName = "Glen", FirstName = "Glen", LastName = "The Best", EmailAddress = "dev.outlook@test.ciom" });
-                _context.Posts.Add(new Post { Message = "Hi, folks!" , UserId = 1 });
-                _context.SaveChanges();
-            }
+            if (_context.Posts.Count() == 0) ;
         }
 
         [HttpGet]
@@ -41,12 +37,27 @@ namespace AcebookApi.Controllers
             return item;
         }
 
-        [HttpPost]
-        public object Create(Post post)
+        [Route("New")]
+        public IActionResult New()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public void Create()
+        {
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            var UserId = HttpContext.Session.GetString("UserID");
+            var userid  = Convert.ToInt32(UserId);
+            string message = Request.Form["message"];
+
+
+            var post = new Post() {
+            Message = message,
+            UserId = userid};
+
             _context.Posts.Add(post);
             _context.SaveChanges();
-            return post;
         }
 
         [HttpGet("GetByUserId", Name = "GetPostByUserId")]
