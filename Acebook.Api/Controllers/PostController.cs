@@ -15,13 +15,14 @@ namespace AcebookApi.Controllers
         public PostController(PostContext context)
         {
             _context = context;
+
         }
 
- 
         [HttpGet]
         public ActionResult<List<Post>> Index()
         {
-            ViewBag.posts = _context.Posts.ToList();
+            ViewBag.Posts = _context.Posts.ToList();
+            ViewBag.User = HttpContext.Session.GetString("username");
             return View();
         }
 
