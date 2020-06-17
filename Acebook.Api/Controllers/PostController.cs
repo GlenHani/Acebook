@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
-
+using Microsoft.AspNetCore.Http;
 
 namespace AcebookApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PostController : Controller
     {
@@ -16,18 +16,14 @@ namespace AcebookApi.Controllers
         {
             _context = context;
 
-            if (_context.Posts.Count() == 0)
-            {
-                _context.Users.Add(new User { Id = 1, UserName = "Glen", FirstName = "Glen", LastName = "The Best", EmailAddress = "dev.outlook@test.ciom" });
-                _context.Posts.Add(new Post { Message = "Hi, folks!" , UserId = 1 });
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
-        public ActionResult<List<Post>> GetAll()
+        public ActionResult<List<Post>> Index()
         {
-            return _context.Posts.ToList();
+            ViewBag.Posts = _context.Posts.ToList();
+            ViewBag.User = HttpContext.Session.GetString("username");
+            return View();
         }
 
         [HttpGet("{id}", Name = "GetPost")]
