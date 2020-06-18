@@ -82,8 +82,8 @@ namespace AcebookApi.Controllers
             return View();
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<Post> UpdateCommentByUserId(long id)
+   
+        public ActionResult<Post> UpdateCommentByUserId()
         {
             var entry = _context.Posts.Find(id);
             var message = Request.Form["message"];
