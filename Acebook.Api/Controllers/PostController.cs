@@ -17,13 +17,14 @@ namespace AcebookApi.Controllers
         {
             _context = context;
 
-            if (_context.Posts.Count() == 0) ;
         }
 
         [HttpGet]
-        public ActionResult<List<Post>> GetAll()
+        public ActionResult<List<Post>> Index()
         {
-            return _context.Posts.ToList();
+            ViewBag.Posts = _context.Posts.ToList();
+            ViewBag.User = HttpContext.Session.GetString("username");
+            return View();
         }
 
         [HttpGet("{id}", Name = "GetPost")]

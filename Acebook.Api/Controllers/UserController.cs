@@ -96,8 +96,7 @@ namespace AcebookApi.Controllers
                 if (result == true)
                 {
                     HttpContext.Session.SetString("username", user.UserName);
-                    HttpContext.Session.SetString("UserID", user.Id.ToString());
-                    return RedirectToAction("Post", "New");
+                    return RedirectToAction("Index", "Post");
                  } else {
                     return RedirectToAction("Log_in", "Home");
                 };

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "List of Post";
+}
+
+    <div class="container--column">
+
+        <h1>Hi, @ViewBag.User</h1>
+
+        <form class="card">
+            <input type="text" placeholder="Message" required="" name="username" class="MessageField" />
+            <input type="submit" value="Post" class="button button-end" />
+        </form>
+
+        <ul>
+            @foreach (var item in ViewBag.Posts)
+            {
+                <li>
+                    <div class="card card--min">
+                        <p class="message_post">@item.Message</p>
+                        <p class="PostedBy">-posted by me</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
