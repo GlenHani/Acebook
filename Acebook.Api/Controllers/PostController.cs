@@ -38,27 +38,25 @@ namespace AcebookApi.Controllers
             return item;
         }
 
-        [Route("New")]
-        public IActionResult New()
-        {
-            return View();
-        }
 
         [HttpPost]
-        public void Create()
+        public IActionResult Create()
         {
             ViewBag.Username = HttpContext.Session.GetString("username");
-            var UserId = HttpContext.Session.GetString("UserID");
+            var username = HttpContext.Session.GetString("username");
+            var UserId = HttpContext.Session.GetString("UserId");
             var userid  = Convert.ToInt32(UserId);
             string message = Request.Form["message"];
 
 
             var post = new Post() {
             Message = message,
-            UserId = userid};
+            UserId = userid,
+            UserNamePostedBy = username};
 
             _context.Posts.Add(post);
             _context.SaveChanges();
+            return RedirectToAction("Index", "Post");
         }
 
         [HttpGet("GetByUserId", Name = "GetPostByUserId")]
