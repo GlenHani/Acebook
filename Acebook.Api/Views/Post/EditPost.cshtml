@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Update you post";
+}
+
+<div class="container--column">
+    <form asp-controller="Post" asp-action="UpdateCommentByUserId" method="put" class="card">
+        <input type="text" placeholder="Message" required="" name="message" class="MessageField" />
+        <input type="submit" value="Post" class="button button-end" />
+    </form>
+</div>

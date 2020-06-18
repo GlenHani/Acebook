@@ -75,12 +75,20 @@ namespace AcebookApi.Controllers
 
         }
 
+        [Route("EditPost")]
+
+        public IActionResult EditPost()
+        {
+            return View();
+        }
+
         [HttpPut("{id}")]
-        public ActionResult<Post> UpdateCommentByUserId(long id, string message)
+        public ActionResult<Post> UpdateCommentByUserId(long id)
         {
             var entry = _context.Posts.Find(id);
+            var message = Request.Form["message"];
 
-            if(entry == null)
+            if (entry == null)
             {
                 return StatusCode(404);
             }
