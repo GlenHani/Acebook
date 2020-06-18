@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AcebookApi.Models;
 using Microsoft.AspNetCore.Http;
+using System;
 
 namespace AcebookApi.Controllers
 {
@@ -37,12 +38,25 @@ namespace AcebookApi.Controllers
             return item;
         }
 
+
         [HttpPost]
-        public object Create(Post post)
+        public IActionResult Create()
         {
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            var username = HttpContext.Session.GetString("username");
+            var UserId = HttpContext.Session.GetString("UserId");
+            var userid  = Convert.ToInt32(UserId);
+            string message = Request.Form["message"];
+
+
+            var post = new Post() {
+            Message = message,
+            UserId = userid,
+            UserNamePostedBy = username};
+
             _context.Posts.Add(post);
             _context.SaveChanges();
-            return post;
+            return RedirectToAction("Index", "Post");
         }
 
         [HttpGet("GetByUserId", Name = "GetPostByUserId")]

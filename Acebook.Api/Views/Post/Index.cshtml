@@ -6,9 +6,10 @@
 
         <h1>Hi, @ViewBag.User</h1>
 
-        <form class="card">
-            <input type="text" placeholder="Message" required="" name="username" class="MessageField" />
-            <input type="submit" value="Post" class="button button-end" />
+
+        <form asp-controller="Post" asp-action="Create" method="post"  class="card">
+            <input type="text" placeholder="Message" required="" name="message" class="MessageField" />
+            <input type="submit" value="Add" class="button button-end" />
         </form>
 
         <ul>
@@ -17,7 +18,7 @@
                 <li>
                     <div class="card card--min">
                         <p class="message_post">@item.Message</p>
-                        <p class="PostedBy">-posted by me</p>
+                        <p class="PostedBy">-posted by @item.UserNamePostedBy</p>
                     </div>
                 </li>
             }
