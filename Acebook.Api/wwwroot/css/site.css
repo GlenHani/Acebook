@@ -153,3 +153,12 @@ a{
 .message_post {
   align-self: flex-start;
 }
+
+.left {
+    background: green;
+}
+
+.right {
+    background: hotpink;
+
+}
