@@ -22,7 +22,7 @@ namespace AcebookApi.Controllers
         [HttpGet]
         public ActionResult<List<Post>> Index()
         {
-            ViewBag.Posts = _context.Posts.ToList();
+            ViewBag.Posts = _context.Posts.ToList().OrderByDescending(i => i.Id);
             ViewBag.User = HttpContext.Session.GetString("username");
             return View();
         }
@@ -101,8 +101,6 @@ namespace AcebookApi.Controllers
 
             entry.Message = message;
             _context.SaveChanges();
-
-
 
             return entry;
         }

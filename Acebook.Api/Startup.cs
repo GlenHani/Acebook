@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Session;
 
-
+//Setting up  web applciation 
 namespace Acebook.Api
 {
     public class Startup
@@ -33,14 +33,21 @@ namespace Acebook.Api
                 options.CheckConsentNeeded = context => true;
             });
 
+            //Seting db name to look at app.json file and veriable DefaultConnection 
             services.AddDbContext<PostContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Setting version of MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+
+            //Setting Up UI of swagger and the version 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            //enable sessions on applicaiton to hold informaiton in RAM
             services.AddDistributedMemoryCache();
             services.AddSession();
         }
@@ -59,21 +66,32 @@ namespace Acebook.Api
                 app.UseHsts();
             }
 
+
+            //Add swagger
             app.UseSwagger();
 
+
+            //Set UI for swagger
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            //HTTP redirect for controllers 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+
+
             app.UseCookiePolicy();
 
 
+        
+            //Setting up Sessions 
             app.UseSession();
 
-
+            
+            //Setting up routing for app
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
